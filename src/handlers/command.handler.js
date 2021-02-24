@@ -9,7 +9,6 @@ const table = new ascii().setHeading("Command","Load Satus")
     const commandFiles =  readdirSync(__dirname +"/../commands").filter(file => file.endsWith(".command.js"))
     for (const file of commandFiles) {
         const command = require(__dirname + `/../commands/${file}`)
-        console.log(command)
         if (command.name) {
             client.commands.set(command.name, command)
             table.addRow(file, "✅")

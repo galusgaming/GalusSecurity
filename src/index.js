@@ -39,7 +39,7 @@ client.on('message', (msg) => {
   if (cmd === "info") {
     const embed = new MessageEmbed()
     .setTitle('Informacje o Bocie')
-    .setColor(0xff0000)
+    .setColor(0x3399ff)
     .setThumbnail('https://i.ibb.co/s32YrN3/Galus-Security-LOGO-Imgur.png')
     .setDescription(description)
     .addField('Autor', botAuthor, true)
