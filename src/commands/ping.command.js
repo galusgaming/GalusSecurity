@@ -2,5 +2,7 @@ module.exports = {
     name:"ping",
     description:"Ping!",
 
-    run (message, args) {},
+    run (msg) {
+        msg.reply("pong!")
+    },
 }
