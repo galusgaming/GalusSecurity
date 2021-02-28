@@ -1,19 +1,23 @@
-const {prefix} = require(__dirname + '/../config/config.js')
 module.exports = {
-    name:"clear",
-    description:"This command is used to cleaning chat . ",
+  name: "clear",
+  description: "Clear number of messages in specific channel.",
+  args: true,
+  usage: "<amount>",
 
-    run (msg,args) {
-        const {channel} = msg
-        const amount = parseInt(args[0])
+  run(msg, args) {
+    const { channel } = msg
+    const amountArg = parseInt(args[0])
 
-        if (!Number.isInteger(amount)) {
-            return channel.send("coś poszło nie tak, argument musi być cyfrą!"), 
-            channel.send('`' + `sprawdź poprawne użycie za pomocą ${prefix}help ${this.name}` + '`')
-        }
+    if (!Number.isInteger(amountArg)) {
+      return channel.send("You must specify the amount of messages to clear!")
+    }
 
-        console.log(amount)
+    if (amountArg < 2 || amountArg >= 100) {
+      return channel.send(
+        "Amount of messages to clear must be greater than 1 and lower than 100.",
+      )
+    }
 
-        msg.reply(amount)
-    },
+    channel.bulkDelete(amountArg)
+  },
 }
