@@ -1,3 +1,4 @@
+const { Permissions: {FLAGS} } = require("discord.js");
 module.exports = {
   name: "clear",
   description: "Clear number of messages in specific channel.",
@@ -5,8 +6,14 @@ module.exports = {
   usage: "<amount>",
 
   run(msg, args) {
-    const { channel } = msg
+    author = msg.author 
+    const { channel, member, guild } = msg
     const amountArg = parseInt(args[0])
+
+    if (!member.permissionsIn(channel).has([FLAGS.MANAGE_MESSAGES])) {
+      return channel.send( `${author} nie masz permisjii, żeby użyć tej komendy!`)
+      
+  }
 
     if (!Number.isInteger(amountArg)) {
       return channel.send("You must specify the amount of messages to clear!")
@@ -19,5 +26,6 @@ module.exports = {
     }
 
     channel.bulkDelete(amountArg)
+    channel.send(`Czas został wyczyszczony przez: ${author}` )
   },
 }
