@@ -18,6 +18,11 @@ settingsHandler(client)
 client.on("ready", () => {
   log(chalk.green(`Zalogowałeś się jako... -> `+chalk.red.bold( ` ${client.user.tag}!`)));
 
+
+  client.user.setPresence({ activity: { name: '*Jeśli potrzebujesz pomoocy użyj ?help*',type:'WATCHING' }, status: 'dnd' })
+
+
+
   // Initialize interval for each guild
   client.settings.forEach((config, guildId) => {
     const { guilds } = client
