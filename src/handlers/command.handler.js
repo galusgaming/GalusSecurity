@@ -5,6 +5,7 @@ const { prefix } = require(__dirname + "/../config/config.js")
 const { Collection } = require("discord.js")
 
 const ascii = require("ascii-table")
+const { botPermissions, userPermissions } = require("../commands/test.command")
 
 const table = new ascii().setHeading("Command", "Load status")
 
@@ -34,7 +35,7 @@ module.exports = (client) => {
   console.log(table.toString())
 
   client.on("message", (msg) => {
-    const { author, guild } = msg
+    const { author, guild, channel } = msg
 
     // Check if user is a bot
     if (author.bot) {
@@ -64,6 +65,30 @@ module.exports = (client) => {
     if (cmd.guildOnly && !guild) {
       return msg.reply("I can't execute that command inside DMs!")
     }
+
+    // =================================
+    //
+    // Check permissions
+    //
+    // =================================
+    // Check bot permissions
+    if (cmd.botPermissions && cmd.botPermissions.length) {
+      if (!guild.me.permissionsIn(channel).has(cmd.botPermissions)) {
+        return channel.send(
+          `potrzebuje wiecej permisji do wykonania tej komendy! brakujące permisje: \`${cmd.botPermissions.join(
+            "`,`",
+          )}\``,
+        )
+      }
+    }
+
+    // Check user permissions
+    if (cmd.userPermissions && cmd.userPermissions.length) {
+      if (!msg.member.permissionsIn(channel).has(cmd.userPermissions)) {
+        return msg.reply("nie posiadasz permisji do wykonania tej komendy!.")
+      }
+    }
+
 
     if (cmd.args && !args.length) {
       let reply = `Nie podałeś żadnego argumentu, ${msg.author}!`

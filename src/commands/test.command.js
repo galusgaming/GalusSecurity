@@ -3,6 +3,8 @@ const { Permissions: {FLAGS} } = require("discord.js");
 module.exports = {
     name:"test",
     description:"tested permission",
+    botPermissions: [FLAGS.MANAGE_MESSAGES],
+    userPermissions: [FLAGS.MANAGE_MESSAGES],
 
     run (msg) {
         const {channel, member, guild} = msg
