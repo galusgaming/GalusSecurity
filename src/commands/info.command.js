@@ -13,6 +13,7 @@ module.exports = {
             .setDescription(description)
             .addField('Autor', botAuthor, true)
             .addField('Wersja',botVersion,true)
+            
         
             channel.send(embed)
 
