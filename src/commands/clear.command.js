@@ -1,4 +1,5 @@
-const { Permissions: {FLAGS} } = require("discord.js");
+const {MessageEmbed, Permissions: {FLAGS} } = require("discord.js");
+const { botAuthor } = require("../config/config");
 module.exports = {
   name: "clear",
   description: "Clear number of messages in specific channel.",
@@ -11,6 +12,13 @@ module.exports = {
     author = msg.author 
     const { channel, member, guild } = msg
     const amountArg = parseInt(args[0])
+    const embed = new MessageEmbed()
+    .setTitle("CZAT WYCZYSZCZONY!")
+    .setDescription(`czat został wyczyszczony przez: ${author}`)
+    .setColor(0x00abff)
+    .addField("Ilość:", `*${amountArg} wiadomości*`, true)
+    .setFooter(`bot stworzony przez: ${botAuthor}`)
+    
   
     if (!Number.isInteger(amountArg)) {
       return channel.send("You must specify the amount of messages to clear!")
@@ -23,6 +31,6 @@ module.exports = {
     }
 
     channel.bulkDelete(amountArg)
-    channel.send(`Czas został wyczyszczony przez: ${author}` )
+    channel.send(embed)
   },
 }
