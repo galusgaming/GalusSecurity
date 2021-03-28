@@ -16,14 +16,15 @@ module.exports = {
     const DelEl = args.shift()
     let relese = args.join(" ")
     const user = msg.mentions.users.first()
-    const avatar = user.displayAvatarURL({size: 256})
+    
     if (args.length<[1]){
       relese = `\`nie podano agrumentów!\``
     }
+    
    if (user) {
       const member = guild.member(user)
       if (member) {
-        const avatar = user.displayAvatarURL({size: 256})
+        let avatar = user.displayAvatarURL({size: 256})
         const embed = new MessageEmbed()
         .setTitle('Użytkownik Zbanowany!')
         .setColor(0xFF0000)
@@ -41,11 +42,10 @@ module.exports = {
             msg.reply('I was unable to ban the member')            
             console.error(err);
           });
-      } else {        
-        msg.reply("That user isn't in this guild!")
-      }
-    } else {      
-      msg.reply("You didn't mention the user to ban!")
+      } 
+      
+    }else {        
+      msg.reply("Ten użytkownik nie jest w gildii!")
     }
   },
 }

@@ -4,5 +4,5 @@ module.exports = {
 
     run (msg) {
         msg.reply("pong!")
-    },
+    }, 
 }

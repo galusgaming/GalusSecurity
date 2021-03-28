@@ -6,6 +6,7 @@ const { Collection } = require("discord.js")
 
 const ascii = require("ascii-table")
 const { botPermissions, userPermissions } = require("../commands/test.command")
+const { settings } = require("cluster")
 
 const table = new ascii().setHeading("Command", "Load status")
 
@@ -35,18 +36,29 @@ module.exports = (client) => {
   console.log(table.toString())
 
   client.on("message", (msg) => {
-    const { author, guild, channel } = msg
-
+    const { author, guild, channel, client } = msg
+    let guildID = guild.id
+    const { settings } = client
     // Check if user is a bot
     if (author.bot) {
       return
     }
 
+    if (!settings.get(guildID)) {
+      settings.set(guildID, { clocks:[], Prefix: null, })
+    }
+
+    const guildPrefix = settings.get(guild.id).Prefix
+
+    let Prefix = guildPrefix ? guildPrefix : prefix
+
+    
+
     // Ignore messages without prefix
-    if (!msg.content.startsWith(prefix)) return
+    if (!msg.content.startsWith(Prefix)) return
 
     const args = msg.content
-      .slice(prefix.length)
+      .slice(Prefix.length)
       .trim()
       .split(/ +/g)
 

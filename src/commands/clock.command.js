@@ -1,15 +1,18 @@
+const { Permissions: {FLAGS} } = require("discord.js")
 module.exports = {
   name: "clock",
   description: "Clock command.",
   args: true,
   guildOnly: true,
   usage: "<action>[add]",
-
+  botPermissions: [FLAGS.MANAGE_MESSAGES],
+  userPermissions: [FLAGS.MANAGE_MESSAGES],
   async run(msg, args) {
     const { channel, guild, client } = msg
-
-    // const time = new Date().toLocaleTimeString().slice(0, 5)
-    const time = new Date().toLocaleTimeString()
+    args[0].toLowerCase()
+    if (args[0] === "add" || "ADD" || "Add"){
+    const time = new Date().toLocaleTimeString().slice(0, 5)
+    //const time = new Date().toLocaleTimeString()
     const channelName = `🕥 ${time}`
 
     const createdChannel = await guild.channels.create(channelName, {
@@ -27,5 +30,8 @@ module.exports = {
       client.settings.get(guild.id).clocks.push(channelId)
       client.saveConfig(guild.id)
     }
+  }else {
+    return msg.reply("podaj właściwy argument!")
+  }
   },
 }

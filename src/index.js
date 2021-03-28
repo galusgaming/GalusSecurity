@@ -7,25 +7,33 @@ const client = new Client()
 
 const commandHandler = require("./handlers/command.handler")
 const settingsHandler = require("./handlers/settings.handler")
+const eventHandler = require("./handlers/event.handler.js")
 
 const log = console.log
-
+const {guild} = client
 // Initialize Comamnd Manager
 commandHandler(client)
 // Initialize Settings Manager
 settingsHandler(client)
 
+eventHandler(client)
+
 client.on("ready", () => {
   log(chalk.green(`Zalogowałeś się jako... -> `+chalk.red.bold( ` ${client.user.tag}!`)));
-
+  
 
   client.user.setPresence({ activity: { name: '*Jeśli potrzebujesz pomoocy użyj ?help*',type:'WATCHING' }, status: 'dnd' })
 
 
-
+  
+  
+  
   // Initialize interval for each guild
   client.settings.forEach((config, guildId) => {
+
     const { guilds } = client
+
+
     // Check if guild exist
     if (guilds.cache.has(guildId)) {
       const guild = guilds.cache.get(guildId)
@@ -46,9 +54,10 @@ client.on("ready", () => {
               const channelToUpdate = guild.channels.cache.get(channelId)
               channelToUpdate.setName(channelName)
             } else {
-              // log("not exist")
+               log("not exist")
               // Remove Id from config
-              // that does not exist
+
+              // that does not exist?
               clockChannels.splice(index, 1)
               client.saveConfig(guildId)
             }
@@ -56,6 +65,7 @@ client.on("ready", () => {
         }, 1000)
       }
     }
+    client.saveConfig(guildId)
   })
 })
 
