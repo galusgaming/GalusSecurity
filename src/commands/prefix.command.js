@@ -1,4 +1,4 @@
-const { PREFIX, prefix } = require("../config/config.js")
+const { prefix } = require("../config/config.js")
 const {
   Permissions: { FLAGS },
 } = require("discord.js")

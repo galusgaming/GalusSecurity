@@ -1,2 +1,5 @@
-clocks: []
+clocks:
+  - '825846792439463938'
 Prefix: '?'
+verRole: null
+verChannel: null
