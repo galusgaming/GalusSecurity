@@ -35,7 +35,7 @@ module.exports = {
             
     
             member
-              .kick({ reason: relese,}).then(() => {
+              .kick([relese]).then(() => {
                 msg.channel.send(embed)
               })
               .catch(err => {          
