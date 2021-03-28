@@ -1,4 +1,4 @@
-const {Permissions: {FLAGS}} = require("discord.js")
+const {MessageEmbed, Permissions: {FLAGS}} = require("discord.js")
 module.exports = {
     name: "kick",
     description: "baning  members",
