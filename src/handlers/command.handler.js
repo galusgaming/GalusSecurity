@@ -46,7 +46,7 @@ module.exports = (client) => {
 
     if (!settings.get(guild.id)) {
       settings.set(guild.id, { clocks:[], Prefix: null, })
-    }else if (guild.id ||msg.channel.type === "dm") return
+    }
 
     const guildPrefix = settings.get(guild.id).Prefix
 
