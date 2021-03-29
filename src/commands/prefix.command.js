@@ -21,7 +21,7 @@ module.exports = {
 
     // Save channel id to config
     if (!settings.get(guild.id)) {
-      settings.set(guild.id, { clocks: [], prefix: null })
+      settings.set(guild.id, { clocks: [], Prefix: null })
     }
 
     // No prefix found.
