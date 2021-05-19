@@ -1,16 +1,15 @@
 module.exports = {
-    name: "guildCreate",
+  name: "guildCreate",
 
-    async run(guild) {
-      const {client} = guild
-        const { settings } = client
-        let guildID = await guild.id
-        // Save channel id to config
-        if (!settings.get(guildID)) {
-          settings.set(guildID, { clocks:[], Prefix: null })
-        }
-        
-        client.saveConfig(guildID)
-    
-    }
+  async run(guild) {
+      const client = guild.me.client;
+      const { settings } = client
+      // Save channel id to config
+      if (!settings.get(guild.id)) {
+        settings.set(guild.id, { clocks:[], Prefix:[], verChannel: null, verRole: null })
+      }
+      
+      client.saveConfig(guild.id)
+  
+  }
 }

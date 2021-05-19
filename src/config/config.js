@@ -1,9 +1,9 @@
-const { version } = require("discord.js");
+const dotenv = require("dotenv").config()
 
 module.exports = {
-    token: 'NzYwNjQwOTc5NjUyMDUwOTU0.X3PAHQ.MzUYJ94Ul5q1MH6IS49SRB1AnPI',
+    token: process.env.token,
     prefix: "?",
     botAuthor: "GalusGaming",
-    botVersion: "0.2v",
+    botVersion: "0.5v",
     description: "Bot stworzony w celu lepszego poznania JS, oraz na moj server discord"
 }

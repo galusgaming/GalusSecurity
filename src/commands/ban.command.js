@@ -10,7 +10,7 @@ module.exports = {
   run(msg, args) {
 
     author = msg.author
-    const {channel,} = msg
+    const {channel} = msg
  if (!msg.guild) return
     const {guild} = msg
     const DelEl = args.shift()

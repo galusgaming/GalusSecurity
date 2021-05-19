@@ -10,8 +10,8 @@ module.exports = {
   async run(msg, args) {
     const { channel, guild, client } = msg
     args[0].toLowerCase()
-    if (args[0] === "add" || "ADD" || "Add"){
-    const time = new Date().toLocaleTimeString().slice(0, 5)
+    if (args[0].toLowerCase() === "add"){
+    const time = new Date().toLocaleTimeString('pl-PL').slice(0, 5)
     //const time = new Date().toLocaleTimeString()
     const channelName = `🕥 ${time}`
 

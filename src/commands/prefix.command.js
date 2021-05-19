@@ -1,4 +1,4 @@
-const { PREFIX, prefix } = require("../config/config.js")
+const { prefix } = require("../config/config.js")
 const {
   Permissions: { FLAGS },
 } = require("discord.js")
@@ -21,7 +21,7 @@ module.exports = {
 
     // Save channel id to config
     if (!settings.get(guild.id)) {
-      settings.set(guild.id, { clocks: [], prefix: null })
+      settings.set(guild.id, { clocks: [], Prefix: null })
     }
 
     // No prefix found.

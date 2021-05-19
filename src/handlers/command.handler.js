@@ -37,15 +37,15 @@ module.exports = (client) => {
 
   client.on("message", (msg) => {
     const { author, guild, channel, client } = msg
-    let guildID = guild.id
+    
     const { settings } = client
     // Check if user is a bot
     if (author.bot) {
       return
     }
 
-    if (!settings.get(guildID)) {
-      settings.set(guildID, { clocks:[], Prefix: null, })
+    if (!settings.get(guild.id)) {
+      settings.set(guild.id, { clocks:[], Prefix: null, })
     }
 
     const guildPrefix = settings.get(guild.id).Prefix
