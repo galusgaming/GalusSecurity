@@ -84,3 +84,4 @@ sw.*
 
 
 src/config/servers
+src/config/config.js
