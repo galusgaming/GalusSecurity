@@ -1,7 +1,7 @@
 const {ClientUser,MessageEmbed, Role, Permissions: {FLAGS} } = require("discord.js")
 const ms = require('ms')
 module.exports = {
-  name: "mute",
+  name: "tempmute",
   description: "IT'S TIME TO STOP!",
   args: true,
   usage: "<member>",
