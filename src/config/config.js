@@ -1,7 +1,7 @@
 const dotenv = require("dotenv").config()
 
 module.exports = {
-    token: "ODI2OTY5NzY1NDM1ODAxNjAx.YGUNnA.BV6tcO2UsgR1D39sQfhvpUYtqkA",
+    token: "process.env.token",
     prefix: "?",
     botAuthor: "GalusGaming",
     botVersion: "0.5v",
