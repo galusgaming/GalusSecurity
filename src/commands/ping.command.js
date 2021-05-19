@@ -7,6 +7,6 @@ module.exports = {
     description:"Ping!",
 
     run (msg) {
-        msg.channel.send(`🏓Latency is ${Date.now() - msg.createdTimestamp}ms. API Latency is ${Math.round(client.ws.ping)}ms`);
+        msg.channel.send(`**🏓Ping Wynosi ${Date.now() - msg.createdTimestamp}ms**`);
     }, 
 }
