@@ -4,7 +4,7 @@ const chalk = require("chalk")
 const { token } = require("./config/config.js")
 
 const client = new Client()
-
+const mongo = require("./mongo")
 const commandHandler = require("./handlers/command.handler")
 const settingsHandler = require("./handlers/settings.handler")
 const eventHandler = require("./handlers/event.handler.js")
@@ -17,24 +17,19 @@ commandHandler(client)
 settingsHandler(client)
 
 eventHandler(client)
-
-client.on("ready", () => {
+  
+client.on("ready", async () => {
   log(chalk.green(`Zalogowałeś się jako... -> `+chalk.red.bold( ` ${client.user.tag}!`)));
   
 
   client.user.setPresence({ activity: { name: '*Jeśli potrzebujesz pomoocy użyj ?help*',type:'WATCHING' }, status: 'dnd' })
 
-
-  
-  
-  
-  // Initialize interval for each guild
+// Initialize interval for each guild
   client.settings.forEach((config, guildId) => {
 
     const { guilds } = client
 
-
-    // Check if guild exist
+  // Check if guild exist
     if (guilds.cache.has(guildId)) {
       const guild = guilds.cache.get(guildId)
       // Check if available
@@ -66,6 +61,15 @@ client.on("ready", () => {
       }
     }
     client.saveConfig(guildId)
+  })
+
+
+  await mongo().then((mongoose) => {
+    try {
+      console.log('Connected to mongo!')
+    } finally {
+      mongoose.connection.close()
+    }
   })
 })
 

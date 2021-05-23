@@ -1,4 +1,4 @@
-const {ClientUser,MessageEmbed, Role, Permissions: {FLAGS} } = require("discord.js")
+const {ClientUser,MessageEmbed, Role,Permissions: {FLAGS}  } = require("discord.js")
 module.exports = {
   name: "unmute",
   description: "IT'S TIME TO STOP!",
