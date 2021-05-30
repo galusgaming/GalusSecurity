@@ -73,6 +73,8 @@ client.on("ready", async () => {
   })
 })
 
+
+
 // Connect with Discord
 client.login(token)
 

@@ -6,6 +6,7 @@ module.exports = {
   usage: "<member>",
   botPermissions: [FLAGS.BAN_MEMBERS],
   userPermissions: [FLAGS.BAN_MEMBERS],
+  
 
   run(msg, args) {
     let userID = args[0]

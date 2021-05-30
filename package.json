@@ -7,6 +7,7 @@
     "ascii-table": "0.0.9",
     "chalk": "^4.1.0",
     "config.json": "0.0.4",
+    "discord-xp": "^1.1.14",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
     "js-yaml": "^4.0.0",
