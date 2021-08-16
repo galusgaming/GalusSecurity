@@ -1,6 +1,7 @@
 const { Client } = require("discord.js")
 const chalk = require("chalk")
-
+const mongoose = require("mongoose")
+const User = require("./schemas/userSchema")
 const { token } = require("./config/config.js")
 
 const client = new Client()
@@ -74,7 +75,7 @@ client.on("ready", async () => {
 })
 
 
-
+ 
 // Connect with Discord
 client.login(token)
 

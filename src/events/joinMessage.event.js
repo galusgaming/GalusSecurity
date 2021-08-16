@@ -1,11 +1,13 @@
-const { MessageEmbed } = require("discord.js");
-const { run } = require("../commands/clock.command");
+const { MessageEmbed, GuildMember } = require("discord.js");
 
 module.exports = {
     name: "guildMemberAdd",
 
-    run(msg) {
-
+    run(member) {
+        
+        newUser.set(member.id, member.user)
+        
+        
         
         const embed = new MessageEmbed()
         .setTitle
