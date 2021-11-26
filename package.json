@@ -17,7 +17,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "dev": "nodemon src/index.js",
+    "dev": "nodemon src/index.js --unhandled-rejections=strict",
     "start": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

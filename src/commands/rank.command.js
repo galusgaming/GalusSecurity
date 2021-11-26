@@ -1,5 +1,6 @@
 const levels = require('discord-xp')
 const { Message } = require('discord.js')
+const fetch = require('node-fetch')
 
 
 const { mongoPath } = require('../config/config')

@@ -24,7 +24,7 @@ module.exports = {
       return channel.send("You must specify the amount of messages to clear!")
     }
 
-    if (amountArg < 2 || amountArg >= 100) {
+    if (amountArg < 2 || amountArg >= 101) {
       return channel.send(
         "Amount of messages to clear must be greater than 1 and lower than 100.",
       )

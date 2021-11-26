@@ -1,11 +1,11 @@
 const { Client } = require("discord.js")
 const chalk = require("chalk")
-const mongoose = require("mongoose")
-const User = require("./schemas/userSchema")
+//const mongoose = require("mongoose")
+//const User = require("./schemas/userSchema")
 const { token } = require("./config/config.js")
 
 const client = new Client()
-const mongo = require("./mongo")
+//const mongo = require("./mongo")
 const commandHandler = require("./handlers/command.handler")
 const settingsHandler = require("./handlers/settings.handler")
 const eventHandler = require("./handlers/event.handler.js")
@@ -65,13 +65,13 @@ client.on("ready", async () => {
   })
 
 
-  await mongo().then((mongoose) => {
+  /*await mongo().then((mongoose) => {
     try {
       console.log('Connected to mongo!')
     } finally {
       mongoose.connection.close()
     }
-  })
+  })*/
 })
 
 
