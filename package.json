@@ -9,7 +9,7 @@
     "color": "^4.0.1",
     "config.json": "0.0.4",
     "discord-xp": "^1.1.14",
-    "discord.js": "^12.5.1",
+    "discord.js": "^12.5.2",
     "dotenv": "^8.2.0",
     "js-yaml": "^4.0.0",
     "mongoose": "^5.12.10",
