@@ -126,5 +126,6 @@ dist/
 # Temporary folders
 tmp/
 temp/
-
+kluczGithub
+kluczGithub.pub
 # End of https://www.toptal.com/developers/gitignore/api/node
