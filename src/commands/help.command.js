@@ -1,5 +1,5 @@
 module.exports = {
-  name: "help",
+  name: "",
   description:
     "List all commands the bot has or info about a specific command.",
   usage: "[command name]",

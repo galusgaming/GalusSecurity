@@ -15,9 +15,10 @@
     "minimist": "^1.2.5",
     "mongoose": "^5.12.10",
     "ms": "^2.1.3",
+    "node-cron": "^3.0.0",
+    "node-fetch": "^3.2.4",
     "nodemon": "^2.0.15"
   },
-  "devDependencies": {},
   "scripts": {
     "dev": "nodemon src/index.js --unhandled-rejections=strict",
     "start": "nodemon src/index.js",

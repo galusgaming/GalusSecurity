@@ -77,6 +77,7 @@ module.exports = (client) => {
     if (cmd.guildOnly && !guild) {
       return msg.reply("I can't execute that command inside DMs!")
     }
+    if(msg.author.bot || msg.channel.type === "dm") return;
 
     // =================================
     //
